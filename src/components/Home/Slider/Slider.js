@@ -8,7 +8,7 @@ import slider3 from '../../Image/slider3.jpg'
 const Slider = () => {
     return (
         <section className="mt-5">
-            <h1 className="text-center mt-5 mb-5 text-success">Wedding Slide Show</h1>
+            <h1 className="text-center mt-5 mb-5 text-success">Service Slide Show</h1>
             <div className="container">
                 <Carousel>
                     <Carousel.Item>
