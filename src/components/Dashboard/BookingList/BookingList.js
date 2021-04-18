@@ -19,8 +19,8 @@ const BookingList = () => {
     const filteredOrder = (booking) => {
         console.log("Booking Data", booking[0].data.email)
         const filterData = booking.filter((order) => order.data.email === loggedInUser.email)
-        console.log("FilterData:", filterData)
         setBooking(filterData)
+        console.log("FilterData:", filterData)
     }
 
     return (

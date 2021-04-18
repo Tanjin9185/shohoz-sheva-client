@@ -1,77 +1,69 @@
 import React, { useState } from 'react';
-import Sidebar from '../Sidebar/Sidebar';
 import axios from 'axios';
 
+import { useForm } from 'react-hook-form';
+// import './AddServices.css'
+import Sidebar from '../Sidebar/Sidebar';
+
 const AddService = () => {
+    
+    const { register, handleSubmit, watch, errors} = useForm();
+    const [imageURL, setImageURL] = useState(null)
 
-    const [services, setServices] = useState({});
-    console.log(services)
-    const [image, setImage] = useState(null);
-    console.log(image)
+    const onSubmit = data =>{
+        const eventData = {
+            serviceName: data.serviceName,
+            price: data.price,
+            description: data.description,
+            imageURL: imageURL
+        }
+        console.log(eventData);
+        const url = `https://arcane-garden-75913.herokuapp.com/addServices`
 
-    const handleBlur = (e) => {
-        const newService = { ...services };
-        newService[e.target.name] = e.target.value;
-        setServices(newService);
-    };
 
-    const handleImage = (e) => {
-        const newImage = e.target.files[0];
-        setImage(newImage);
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const formData = new FormData();
-        formData.append('image', image);
-        formData.append('name', services.name);
-        formData.append('price', services.price);
-        formData.append('desc', services.description);
-        fetch('https://arcane-garden-75913.herokuapp.com/addService', {
+        fetch(url, {
             method: "POST",
             headers: {
-                'Content-Type': 'application/json'
+                "content-type": "application/json"
             },
-            body: formData,
+            body: JSON.stringify(eventData)
         })
-            .then(res => res.json())
-            .then(data => {
-                if (data) {
-                    console.log(data);
-                    alert("Service added successfully")
-                }
-            }).catch(err => {
-                console.log(err);
+            .then(res => console.log('server side response', res))
+    };
+
+    const handleImageUpload = event =>{
+        console.log(event.target.files[0])
+        const imageData = new FormData()
+        imageData.set('key', 'cc901483d5af9e4fe34505b75ad00754')
+        imageData.append('image', event.target.files[0])
+
+        axios.post('https://api.imgbb.com/1/upload',
+            imageData)
+            .then(function (response)
+            {
+                setImageURL(response.data.data.display_url);
             })
+            .catch(function (error)
+            {
+                console.log(error);
+            });
+
     }
 
     return (
-        <div className="row">
-            <div className="col-md-2 col-sm-6 col-12">
-                <Sidebar />
+        <div className="row w-100">
+            <div className="col-md-3">
+                <Sidebar></Sidebar>
             </div>
-            <div className="col-md-10 col-sm-12 col-12 d-flex justify-content-center mt-5 pt-5 pb-5">
-                <div class="login-box">
-                    <form onSubmit={handleSubmit}>
-                        <h1 className="text-secondary mb-5">Add Service</h1>
-                        <div class="user-box">
-                            <input onBlur={handleBlur} type="text" name="name" required="" />
-                            <label>Service Name</label>
-                        </div>
-                        <div class="user-box">
-                            <input onBlur={handleBlur} type="text" name="description" required="" />
-                            <label>Description</label>
-                        </div>
-                        <div class="user-box">
-                            <input onBlur={handleBlur} type="text" name="price" required="" />
-                            <label>Price</label>
-                        </div>
-                        <div class="user-box">
-                            <input onChange={handleImage} type="file" name="" required="" />
-                            <label>Service Name</label>
-                        </div>
-                        <input class="buttonStyle" type="submit" value="Submit"/>
-                    </form>
+            <div className="col-md-8">
+                <div className="">
+                        <form onSubmit={handleSubmit(onSubmit)}>
+                            <input  name="serviceName" placeholder="Service Name" {...register("serviceName")} />
+                            <input  name="price" placeholder="Price" {...register("price")} /> <br /><br />
+                            <input  name="description" placeholder="Description" {...register("description")} /> <br /><br />
+                            <input name="image" type="file" onChange={handleImageUpload} /> <br /><br />
+                            <input  type="submit" />
+                        </form>
                 </div>
             </div>
         </div>

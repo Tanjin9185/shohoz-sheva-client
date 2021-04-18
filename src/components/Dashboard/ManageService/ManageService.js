@@ -64,8 +64,8 @@ const ManageService = () => {
                         <tbody>
                             {manageService.map(service => {
                                 return <tr>
-                                    <td>{service.name}</td>
-                                    <td>{service.desc}</td>
+                                    <td>{service.serviceName}</td>
+                                    <td>{service.description}</td>
                                     <td>{service.price}</td>
                                     <td><button className="btn btn-danger" onClick={() => handleDelete(service._id)}>Delete</button></td>
                                 </tr>
