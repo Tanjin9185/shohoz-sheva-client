@@ -12,7 +12,7 @@ const ManageService = () => {
 
     // const handleDelete = (id) => {
     //     console.log("ID:", id)
-    //     fetch(`http://localhost:5000/service/${id}`, {
+    //     fetch(`https://arcane-garden-75913.herokuapp.com/service/${id}`, {
     //         method: "DELETE"
     //     })
 
@@ -24,7 +24,7 @@ const ManageService = () => {
     // Niam vai 
 
     useEffect(() => {
-        fetch('http://localhost:5000/services')
+        fetch('https://arcane-garden-75913.herokuapp.com/services')
             .then(res => res.json())
             .then(data => {
                 setManageService(data);
@@ -33,7 +33,7 @@ const ManageService = () => {
 
     const handleDelete = id =>
     {
-       id && fetch(`http://localhost:5000/services/${ id }`, {
+       id && fetch(`https://arcane-garden-75913.herokuapp.com/services/${ id }`, {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json'
