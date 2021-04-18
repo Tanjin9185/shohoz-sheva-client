@@ -7,7 +7,7 @@ const AddReview = () => {
 
     const { register, handleSubmit, errors } = useForm();
 
-    const [imageURL, setImageURL] = useState(null)
+    const [imageURL, setImageURL] = useState(null);
 
 
     const onSubmit = data => {
@@ -17,7 +17,7 @@ const AddReview = () => {
             rating: data.rating,
             imageURL: imageURL
         };
-        const url = 'https://arcane-garden-75913.herokuapp.com/addReview'
+        const url = 'http://localhost:5000/addReview'
         fetch(url, {
             method: 'POST',
             headers: {
@@ -29,9 +29,9 @@ const AddReview = () => {
     };
 
     const handleImageUpload = event => {
-        console.log(event.target.files[0]);
+        console.log(event.target.files[0]); 
         const imageData = new FormData();
-        imageData.set('key', 'd2c0702a7fac0dcae408eabf0f66f049');
+        imageData.set('key', 'cc901483d5af9e4fe34505b75ad00754');
         imageData.append('image', event.target.files[0])
 
         axios.post('https://api.imgbb.com/1/upload', imageData)

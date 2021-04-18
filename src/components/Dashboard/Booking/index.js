@@ -19,7 +19,7 @@ const AddReview = () => {
             imageURL: imageURL
         };
  
-        const url =`https://arcane-garden-75913.herokuapp.com/addReview`
+        const url =`http://localhost:5000/addReview`
  
         console.log(serviceDate)
  

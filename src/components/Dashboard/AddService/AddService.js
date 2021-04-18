@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Sidebar from '../Sidebar/Sidebar';
+import axios from 'axios';
 
 const AddService = () => {
 
@@ -26,8 +27,11 @@ const AddService = () => {
         formData.append('name', services.name);
         formData.append('price', services.price);
         formData.append('desc', services.description);
-        fetch('https://arcane-garden-75913.herokuapp.com/addService', {
+        fetch('http://localhost:5000/addService', {
             method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
             body: formData,
         })
             .then(res => res.json())

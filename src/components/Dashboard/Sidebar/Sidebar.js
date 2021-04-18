@@ -9,14 +9,11 @@ import { UserContext } from '../../../App';
 const Sidebar = () => {
 
 const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-    const [isAdmin, setIsAdmin] = useState(true)
+    const [isAdmin, setIsAdmin] = useState(false);
     useEffect(() =>{
-        const url = 'https://arcane-garden-75913.herokuapp.com/isAdmin'
+        const url = 'http://localhost:5000/isAdmin'
         fetch(url, {
             method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
             body: JSON.stringify({email:loggedInUser.email})
         })
             .then(res => res.json())
@@ -32,8 +29,8 @@ const [loggedInUser, setLoggedInUser] = useContext(UserContext);
                 </li>
                 <div>
                     
-                    {
-                        isAdmin ? 
+                    {/* { */}
+                        // isAdmin ? 
 
                         <div>
                             <li>
@@ -56,7 +53,8 @@ const [loggedInUser, setLoggedInUser] = useContext(UserContext);
                             <FontAwesomeIcon icon={faTasks} /> <span>Manage Service</span>
                         </Link>
                     </li>
-                        </div> : 
+                        </div> 
+                        //   : 
                         <div>
                             <li>
                         <Link to="/service/:id" className="text-white">
@@ -74,7 +72,7 @@ const [loggedInUser, setLoggedInUser] = useContext(UserContext);
                         </Link>
                     </li>
                         </div>
-                    }
+                    {/* } */}
                 </div>
             </ul>
         </div>
