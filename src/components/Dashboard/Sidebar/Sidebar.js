@@ -29,7 +29,7 @@ const [loggedInUser, setLoggedInUser] = useContext(UserContext);
                 </li>
                 <div>
                     
-                         isAdmin ? 
+                        { isAdmin ? 
 
                         <div>
                             <li>
