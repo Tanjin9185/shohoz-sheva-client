@@ -1,19 +1,14 @@
 import React from 'react';
+import './OrderListDetails.css';
 
-const OrderListDetails = ({ order }) => {
-    console.log("After map:", order.data)
-    const { name, price, email } = order.data;
+const OrderListDetails = (props) => {
+    // console.log("After map:", order.data)
+    console.log("oder",props.order.data);
+    const { name, price, email } = props.order.data;
     return (
         <div>
-            <table class="table table-dark">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Email</th>
-                    </tr>
-                </thead>
+            <table className="table tableColor">
+               
                 <tbody>
                     <tr>
                         <th scope="row">1</th>

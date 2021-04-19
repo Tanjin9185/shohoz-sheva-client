@@ -10,7 +10,7 @@ const OrderList = () => {
             .then(res => res.json())
             .then(data => setOrderList(data))
     }, [])
-    // console.log(orderList)
+    //  console.log("oderlisy1",orderList[1].data)
     return (
         <div className="row">
             <div className="col-md-2 col-sm-6 col-12">
@@ -19,6 +19,16 @@ const OrderList = () => {
             <div className="col-md-8 col-sm-12 col-12 d-flex justify-content-center ml-5 mt-5 pt-5 pb-5">
                 <div>
                     <h1 className="text-center mb-5">Order List</h1>
+                    <table className="table tableColor">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Email</th>
+                    </tr>
+                </thead>
+                    </table>
                     {
                        orderList && orderList.map(order =>  <OrderListDetails order={order}></OrderListDetails>)
                     }

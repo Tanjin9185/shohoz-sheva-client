@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './AddService.css';
 
 import { useForm } from 'react-hook-form';
 // import './AddServices.css'
@@ -55,13 +56,15 @@ const AddService = () => {
             <div className="col-md-3">
                 <Sidebar></Sidebar>
             </div>
-            <div className="col-md-8">
-                <div className="">
-                        <form onSubmit={handleSubmit(onSubmit)}>
-                            <input  name="serviceName" placeholder="Service Name" {...register("serviceName")} />
-                            <input  name="price" placeholder="Price" {...register("price")} /> <br /><br />
-                            <input  name="description" placeholder="Description" {...register("description")} /> <br /><br />
-                            <input name="image" type="file" onChange={handleImageUpload} /> <br /><br />
+            <div className="col-md-8 addservice">
+                <div className="mt-5">
+                    <h3 className="mb-3">Add Service</h3>
+                        <form className="mb-5" onSubmit={handleSubmit(onSubmit)}>
+                            <input className="form-control"  name="serviceName" placeholder="Service Name" {...register("serviceName")} />
+                            <br/>
+                            <input className="form-control"  name="price" placeholder="Price" {...register("price")} /> <br />
+                            <input className="form-control" name="description" placeholder="Description" {...register("description")} /> <br />
+                            <input className="form-control" name="image" type="file" onChange={handleImageUpload} /> <br /><br />
                             <input  type="submit" />
                         </form>
                 </div>
