@@ -37,6 +37,3 @@ Back-end Technology:
 Server Side Git: https://github.com/Tanjin9185/shohoz-sheva-server
 
 
-
-
-
