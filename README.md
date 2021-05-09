@@ -25,6 +25,7 @@ Front-end Technology:
     CSS
     FontAwesome
 
+
 Back-end Technology:
     Node JS
     Express JS
