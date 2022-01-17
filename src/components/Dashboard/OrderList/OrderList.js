@@ -21,7 +21,7 @@ const OrderList = () => {
                     <h1 className="text-center mb-5">Order List</h1>
                     <table className="table " style={{backgroundColor: '#678983'}}>
                     <thead>
-                    <tr style={{backgroundColor: '#678983'}}>
+                    <tr >
                         <th scope="col">#</th>
                         <th scope="col">Name</th>
                         <th scope="col">Price</th>
