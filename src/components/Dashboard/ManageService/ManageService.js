@@ -48,7 +48,7 @@ const ManageService = () => {
             <div className="col-md-2 col-sm-6 col-12">
                 <Sidebar />
             </div>
-            <div className="col-md-10 col-sm-12 col-12 d-flex justify-content-center mt-5 pt-5 pb-5">
+            <div className="col-md-10 col-sm-12 col-12 d-flex justify-content-center mt-5 pt-5 pb-5" >
                 <div class="manageService">
                     <h1 className="text-center mb-5">Manage Service</h1>
                     <table className="table">

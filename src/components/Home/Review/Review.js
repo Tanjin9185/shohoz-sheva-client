@@ -12,12 +12,11 @@ const Review = () => {
     return (
         <section className="container">
             <div className="text-center mt-5">
-                <h5>REVIEW</h5>
                 <h1 className="text-success">Our Most Valuable Review</h1>
                 <div className="d-flex justify-content-center">
                     <div className="row w-75">
                         {
-                            reviewData.map(review => <ReviewDetails review={review}></ReviewDetails>)
+                            reviewData?.map(review => <ReviewDetails review={review}></ReviewDetails>)
                         }
                     </div>
                 </div>

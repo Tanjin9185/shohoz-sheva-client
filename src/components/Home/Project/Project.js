@@ -26,9 +26,9 @@ const projectData = [
 
 const Project = () => {
     return (
-        <section className="service-container">
+        <section style={{backgroundColor: '#E6DDC4'}} className="pb-5 mb-5">
+            <div className="service-container mt-5 pt-5">
             <div className="text-center mt-5">
-                <h5>Service</h5>
                 <h1 className="text-danger">Browse Our Recent Service</h1>
                 <div className="d-flex justify-content-center">
                     <div className="row w-75">
@@ -38,6 +38,7 @@ const Project = () => {
                     </div>
                 </div>
             </div>
+        </div>
         </section>
     );
 };

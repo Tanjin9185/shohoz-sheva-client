@@ -6,8 +6,8 @@ const OrderListDetails = (props) => {
     console.log("oder",props.order.data);
     const { name, price, email } = props.order.data;
     return (
-        <div>
-            <table className="table tableColor">
+        <div style={{backgroundColor: '#E6DDC4'}}>
+            <table className="table " style={{backgroundColor: '#678983'}}>
                
                 <tbody>
                     <tr>

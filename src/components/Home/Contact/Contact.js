@@ -1,47 +1,54 @@
-import React from 'react';
-import './Contact.css';
-
+import React from "react";
+import "./Contact.css";
+import message from "../../Image/message.jpg";
 
 const Contact = () => {
-    return (
-        <section>
-            <div class="background">
-                <div class="container">
-                    <div className="mb-5 text-center">
-                        <h1 class="app-title">Contact With Us</h1>
-                    </div>
-                    <div class="screen">
-                        <div class="screen-body">
-                            <div class="screen-body-item left">
-                                <div class="app-title">
-                                    <span>CONTACT FORM</span>
-                                </div>
-                            </div>
-                            <div class="screen-body-item">
-                                <div class="app-form">
-                                    <div class="app-form-group">
-                                        <input class="app-form-control" placeholder="NAME" />
-                                    </div>
-                                    <div class="app-form-group">
-                                        <input class="app-form-control" placeholder="EMAIL" />
-                                    </div>
-                                    <div class="app-form-group">
-                                        <input class="app-form-control" placeholder="CONTACT NO" />
-                                    </div>
-                                    <div class="app-form-group message">
-                                        <input class="app-form-control" placeholder="MESSAGE" />
-                                    </div>
-                                    <div class="app-form-group buttons">
-                                        <button class="app-form-button">SEND MESSAGE</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+  return (
+    <section className="mb-5 pb-5" id="contact" style={{backgroundColor: '#678983'}}>
+      <div className="container">
+      <h1 className="text-center my-5 pt-5 pb-5">Contact with us</h1>
+        <div className="row align-items-center">
+         
+          <div className="col-md-6">
+              <img src={message} alt="" className="img-responsive img-fluid w-100 h-100" />
+          </div>
+          <div className="col-md-6 shadow p-2 rounded border">
+            <div class="form-floating mb-3">
+            <label for="floatingInput">Email address</label>
+              <input
+                type="email"
+                class="form-control"
+                id="floatingInput"
+                placeholder="shohoz@gmail.com"
+              />
+              
             </div>
-        </section>
-    );
+            <div class="form-floating mb-3">
+            <label for="floatingInput">Enter Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="floatingInput"
+                placeholder="Tanjin Ahamed"
+              />
+              
+            </div>
+           
+              <div className="from-floating">
+              <label for="floatingTextarea2">Comments</label>
+              <textarea
+                class="form-control"
+                placeholder="Write yours opinion here"
+                id="floatingTextarea"
+              ></textarea>
+              </div>
+             <div className="d-flex justify-content-end mt-2"><button class="btn btn-primary" type="submit">Send</button></div>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default Contact;

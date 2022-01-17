@@ -1,0 +1,81 @@
+.projects {
+    padding: 60px 0;
+  }
+  .swiper-container {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  
+  .swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 450px;
+    height: auto;
+    border: 1px solid #eee;
+    border-radius: 20px;
+    padding: 20px;
+  }
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+  }
+  .project-tech {
+    padding: 15px 0;
+  }
+  
+  .project-tech button.btn {
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 14px;
+    margin-right: 10px;
+    color: #fff;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+  .project-tech button.react-btn {
+    background: #ff0099;
+    background: -webkit-linear-gradient(to right, #ff0099, #493240);
+    background: linear-gradient(to right, #ff0099, #493240);
+  }
+  .project-tech button.node-btn {
+    background: #f12711;
+    background: -webkit-linear-gradient(to right, #f5af19, #f12711);
+    background: linear-gradient(to right, #f5af19, #f12711);
+  }
+  .project-tech button.mongo-btn {
+    background: #8e2de2;
+    background: -webkit-linear-gradient(to right, #4a00e0, #8e2de2);
+    background: linear-gradient(to right, #4a00e0, #8e2de2);
+  }
+  .project-tech button.heroku-btn {
+    background: #ad5389;
+    background: -webkit-linear-gradient(to right, #3c1053, #ad5389);
+    background: linear-gradient(to right, #3c1053, #ad5389);
+  }
+  .project-tech button.firebase-btn,
+  .project-tech button.react-router {
+    background: #333333;
+    background: -webkit-linear-gradient(to right, #dd1818, #333333);
+    background: linear-gradient(to right, #dd1818, #333333);
+  }
+  .project-detail h4 {
+    font-weight: 700;
+    font-size: 22px;
+  }
+  
+  .moreBtn {
+    background-color: #f32a74 !important;
+    color: white !important;
+    text-decoration: none;
+    font-size: 20px !important;
+    height: 50px;
+    border-radius: 50px !important;
+    width: 130px;
+    padding: 8px !important;
+  }
+  .moreBtn:hover {
+    background-color: white !important;
+    text-decoration: none;
+    color: black !important;
+  }

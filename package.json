@@ -23,7 +23,9 @@
     "react-hook-form": "^7.1.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "react-swiper": "^0.1.5",
     "stripe": "^8.144.0",
+    "swiper": "^6.5.9",
     "web-vitals": "^1.1.1"
   },
   "scripts": {

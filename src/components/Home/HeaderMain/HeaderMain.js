@@ -1,13 +1,14 @@
 import React from 'react';
-import feature from '../../Image/feature.png'
+import banner from '../../Image/banner.jpg'
 import './HeaderMain.css';
 
 const HeaderMain = () => {
     return (
-        <section className="container">
-            <div className="row d-flex mt-5">
+        <section style={{backgroundColor: '#F0E9D2'}}>
+        <div className="container">
+            <div className="row d-flex mt-5 align-items-center">
                 <div className="col-md-6">
-                    <img style={{ width: '100%', marginTop: '-80px' }} src={feature} alt="" />
+                    <img className="img-responsive img-fluid w-100" src={banner} alt="" />
                 </div>
                 <div className="col-md-6">
                     <h1>You can find us 24/7</h1>
@@ -22,6 +23,7 @@ const HeaderMain = () => {
                     </div>
                 </div>
             </div>
+        </div>
         </section>
     );
 };
