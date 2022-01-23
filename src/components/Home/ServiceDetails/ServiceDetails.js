@@ -8,14 +8,14 @@ const ServiceDetails = ({ service }) => {
     <Link
       style={{ textDecoration: "none" }}
       to={`/service/${service._id}`}
-      className="col-md-4 text-center pb-5 mb-5" 
+      className="col-md-4 text-center pb-5 mb-5"
     >
       <div className="mt-5 shadow h-100 service-details">
         <h3 className="mt-4 mb-4">{service.serviceName}</h3>
         <div className="service-detail">
           <img
-            style={{ height: "100px" }}
-            className="img-fluid border-top "
+
+            className="img-fluid border-top service-img"
             src={service.imageURL}
             alt=""
           />
@@ -24,10 +24,10 @@ const ServiceDetails = ({ service }) => {
           </div>
         </div>
 
-        <p className="text-justify px-2 mt-5" style={{color: '#181D31'}}>
+        <p className="text-justify px-2 mt-5" style={{ color: '#181D31' }}>
           {service.description}
         </p>
-        <h5 className="mt-3 mb-0 fs-1">Service Price: $ {service.price}</h5>
+        <small className="mt-3 mb-0 fs-1">Service Price: ${service.price}</small>
       </div>
     </Link>
   );

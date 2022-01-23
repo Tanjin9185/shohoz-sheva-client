@@ -7,29 +7,29 @@ import './Booking.css';
 
 const Booking = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-    const {id} = useParams()
+    const { id } = useParams()
     console.log(id)
-    const [serviceData,setServiceData] = useState({})
+    const [serviceData, setServiceData] = useState({})
 
-    useEffect(()=>{
-        fetch(`https://arcane-garden-75913.herokuapp.com/serviceBook/${id}`)
-        .then(res=>res.json())
-        .then(data=>{
-            setServiceData(data);
-        })  
-  },[])
-  console.log(serviceData)
-  const {name, price} = serviceData
+    useEffect(() => {
+        fetch(`http://localhost:5000/serviceBook/${id}`)
+            .then(res => res.json())
+            .then(data => {
+                setServiceData(data);
+            })
+    }, [])
+    console.log(serviceData)
+    const { name, price } = serviceData
 
-  const [serviceInfo, setServiceInfo] = useState({})
-  console.log(serviceInfo, loggedInUser)
+    const [serviceInfo, setServiceInfo] = useState({})
+    console.log(serviceInfo, loggedInUser)
 
-  const newService = { name, price, ...loggedInUser };
-  console.log("Name Service:" , newService)
-  const handleBlur = (e) => {
-    newService[e.target.name] = e.target.value;
-    setServiceInfo(newService);
-};
+    const newService = { name, price, ...loggedInUser };
+    console.log("Name Service:", newService)
+    const handleBlur = (e) => {
+        newService[e.target.name] = e.target.value;
+        setServiceInfo(newService);
+    };
     return (
         <div className="row">
             <div className="col-md-2 col-sm-6 col-12">
@@ -48,11 +48,11 @@ const Booking = () => {
                             <label>Price</label>
                         </div>
                         <div class="user-box">
-                            <input type="text" name="service" required="" value={serviceData.name}/>
+                            <input type="text" name="service" required="" value={serviceData.name} />
                             <label>Service</label>
                         </div>
                     </form>
-                        <PaymentProcess newService={newService}/>
+                    <PaymentProcess newService={newService} />
                 </div>
             </div>
         </div>

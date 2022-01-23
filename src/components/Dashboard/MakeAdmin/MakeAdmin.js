@@ -4,14 +4,14 @@ import Sidebar from '../Sidebar/Sidebar';
 
 const MakeAdmin = () => {
     const [admin, setAdmin] = useState({})
-    const handleBlur = e =>{
-        const newAdmin = {...admin}
+    const handleBlur = e => {
+        const newAdmin = { ...admin }
         newAdmin[e.target.name] = e.target.value
         setAdmin(newAdmin)
     }
-    const handleSubmit = e =>{
+    const handleSubmit = e => {
         e.preventDefault()
-        const url = 'https://arcane-garden-75913.herokuapp.com/addAdmin'
+        const url = 'http://localhost:5000/addAdmin'
         fetch(url, {
             method: 'POST',
             headers: {
@@ -27,17 +27,17 @@ const MakeAdmin = () => {
                 <Sidebar />
             </div>
             <div className="col-md-10 col-sm-12 col-12 d-flex justify-content-center mt-5 pt-5 pb-5" >
-                <div style={{backgroundColor: '#E6DDC4'}}>
-                <div class="login-box" >
-                    <form onSubmit={handleSubmit} >
-                        <h1 className="text-secondary mb-5">Make Admin</h1>
-                        <div class="user-box">
-                            <input type="text" onBlur={handleBlur} name="email" required="" />
-                            <label>Admin User Email</label>
-                        </div>
-                        <input class="buttonStyle" type="submit" value="Submit"/>
-                    </form>
-                </div>
+                <div style={{ backgroundColor: '#E6DDC4' }}>
+                    <div class="login-box" >
+                        <form onSubmit={handleSubmit} >
+                            <h1 className="text-secondary mb-5">Make Admin</h1>
+                            <div class="user-box">
+                                <input type="text" onBlur={handleBlur} name="email" required="" />
+                                <label>Admin User Email</label>
+                            </div>
+                            <input class="buttonStyle" type="submit" value="Submit" />
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

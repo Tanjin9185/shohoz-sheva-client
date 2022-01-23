@@ -9,6 +9,8 @@ const Login = () => {
     initializeLogin();
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const [newUser, setNewUser] = useState(false);
+    const [error, setError] = useState({});
+    const [modal, setModal] = useState(false);
     const [user, setUser] = useState({
         isSignIn: false,
         userName: '',
@@ -16,14 +18,17 @@ const Login = () => {
         password: '',
         imgSrc: '',
         error: '',
-        success: false
+        success: false,
     });
 
     const history = useHistory();
     const location = useLocation();
-    const { from } = location.state || { from: {
-        pathname: "/" } };
-    
+    const { from } = location.state || {
+        from: {
+            pathname: "/"
+        }
+    };
+
     const handleResponse = (res, redirect) => {
         setUser(res)
         setLoggedInUser(res)
@@ -37,10 +42,13 @@ const Login = () => {
         googleSignIn()
             .then(res => {
                 handleResponse(res, true)
-        })
+                setModal(true);
+
+                setUser.success = true;
+            })
     }
     const handleSubmit = (event) => {
-        if (newUser && user.email && user.password){
+        if (newUser && user.email && user.password) {
             createUserWithEmailAndPassword(user.name, user.email, user.password)
                 .then(res => {
                     handleResponse(res, true);
@@ -50,6 +58,7 @@ const Login = () => {
             SignInUserWithEmailAndPassword(user.email, user.password)
                 .then(res => {
                     handleResponse(res, true);
+                    setModal(true);
                     setLoggedInUser(res, true);
                 })
         }
@@ -60,17 +69,25 @@ const Login = () => {
         let isFormValid;
 
         if (event.target.name === 'name') {
-            isFormValid = event.target.value.length > 4;
+            setError(prev => {
+                return { ...prev, name: event.target.value?.length < 4 ? "Name Must be at least 4 characters" : null }
+            })
         }
 
         if (event.target.name === 'email') {
             isFormValid = /\S+@\S+\.\S+/.test(event.target.value);
+            setError(prev => {
+                return { ...prev, email: isFormValid ? "Email Must be like example@gmail.com" : null }
+            })
         }
 
         if (event.target.name === 'password') {
             const isPasswordValid = event.target.value.length > 6;
             const isPasswordHasNumber = /\d{1}/.test(event.target.value);
             isFormValid = isPasswordValid && isPasswordHasNumber;
+            setError(prev => {
+                return { ...prev, password: isFormValid ? "Password Must be like 8 character" : null }
+            })
         }
 
         if (isFormValid) {
@@ -89,20 +106,36 @@ const Login = () => {
                     <>
                         <label htmlFor="inputName" className="visually-hidden">User Name</label>
                         <input type="text" onChange={handleBlur} name="name" className="form-control" placeholder="User Name" required />
+                        {error?.name && <p>{error?.name}</p>}
                     </>
                 }
                 <label htmlFor="inputEmail" className="visually-hidden">Email Address</label>
                 <input type="email" onChange={handleBlur} name="email" className="form-control" placeholder="Email address" required autoFocus />
+                {
+                    newUser &&
+                    <>
+                        {error?.email && <p>{error?.email}</p>}
+                    </>
+                }
                 <label htmlFor="inputPassword" className="visually-hidden">Password</label>
                 <input type="password" onChange={handleBlur} name="password" className="form-control" placeholder="Password" required />
+                {error?.password && <p>{error?.password}</p>}
+                {/* {
+                    newUser &&
+                    <>
+                        {error?.password && <p>{error?.password}</p>}
+                    </>
+                } */}
                 <button className="w-100 btn btn-lg btn-outline-success mb-2" type="submit">{newUser ? 'Create an account' : 'Signin'}</button>
                 <p>{newUser ? 'Already have an account' : 'Don’t have an account'} ?
-                 <span onClick={() => setNewUser(!newUser)} className="text-warning" style={{ cursor: 'pointer' }}>
+                    <span onClick={() => setNewUser(!newUser)} className="text-warning" style={{ cursor: 'pointer' }}>
                         {newUser ? ' Signin' : ' Create an account'}
                     </span></p>
                 <p>Or</p>
                 <hr />
+
                 <button onClick={handleGoogleSignIn} className="w-100 btn btn-lg btn-outline-success mb-2" type="submit">Connect with Google</button>
+                { }
 
             </form>
             {

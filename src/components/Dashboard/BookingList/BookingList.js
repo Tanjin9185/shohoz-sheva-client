@@ -10,7 +10,7 @@ const BookingList = () => {
     const [booking, setBooking] = useState([])
 
     useEffect(() => {
-        fetch(`https://arcane-garden-75913.herokuapp.com/bookingList?data.email=+loggedInUser.email`)
+        fetch(`http://localhost:5000/bookingList?data.email=+loggedInUser.email`)
             .then(res => res.json())
             .then(data => filteredOrder(data))
     }, [])
