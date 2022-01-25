@@ -84,14 +84,22 @@ const ManageService = () => {
 
 
     const handleDelete = id => {
-        id && fetch(`http://localhost:5000/services/${id}`, {
+        console.log("delete", id);
+        fetch(`http://localhost:5000/services/${id}`, {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json'
             }
         })
-            .then(res => console.log(res))
-            .then(error => console.log(error))
+            .then(res => res.json())
+            .then(result => {
+                console.log(result);
+                if (result.deletedCount > 0) {
+                    const remaining = manageService.filter(p => p._id !== id)
+                    setManageService(remaining);
+                }
+            })
+
     }
 
     return (

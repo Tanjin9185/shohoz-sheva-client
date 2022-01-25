@@ -16,10 +16,10 @@ const OrderList = () => {
             <div className="col-md-2 col-sm-6 col-12">
                 <Sidebar />
             </div>
-            <div className="col-md-8 col-sm-12 col-12 d-flex justify-content-center ml-5 mt-5 pt-5 pb-5" style={{ backgroundColor: '#E6DDC4' }}>
+            <div className="col-md-7 col-sm-12 col-12 d-flex justify-content-center ml-3 mt-5 pt-5 pb-5" style={{ backgroundColor: '#E6DDC4' }}>
                 <div>
                     <h1 className="text-center mb-5">Order List</h1>
-                    <table className="table " style={{ backgroundColor: '#678983' }}>
+                    <table className="table p-5 m-5" style={{ backgroundColor: '#678983' }}>
                         <thead>
                             <tr >
                                 <th scope="col">#</th>
