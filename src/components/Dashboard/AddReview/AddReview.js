@@ -17,7 +17,8 @@ const AddReview = () => {
             rating: data.rating,
             imageURL: imageURL
         };
-        const url = 'http://localhost:5000/addReview'
+        console.log("maria", reviewData);
+        const url = 'https://arcane-garden-75913.herokuapp.com/addReview'
         fetch(url, {
             method: 'POST',
             headers: {
@@ -49,22 +50,22 @@ const AddReview = () => {
                 <Sidebar />
             </div>
             <div className="col-md-10 col-sm-12 col-12 d-flex justify-content-center mt-5 pt-5 pb-5">
-                <div class="login-box">
+                <div clasName="login-box">
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <h1 className="text-secondary mb-5">Add Review</h1>
-                        <div class="user-box">
+                        <div className="user-box">
                             <input placeholder="name" name="name"{...register("name")} />
                         </div>
-                        <div class="user-box">
+                        <div className="user-box">
                             <input placeholder="description" name="description"{...register("description")} />
                         </div>
-                        <div class="user-box">
+                        <div className="user-box">
                             <input placeholder="rating" name="rating"{...register("rating")} />
                         </div>
-                        <div class="user-box">
+                        <div className="user-box">
                             <input onChange={handleImageUpload} type="file" name="image" />
                         </div>
-                        <input class="buttonStyle" type="submit" value="Submit" />
+                        <input className="buttonStyle" type="submit" value="Submit" />
                     </form>
                 </div>
             </div>

@@ -8,7 +8,7 @@ const SimpleCardForm = ({ newService }) => {
 
     const handleOrder = (paymentId) => {
         const order = { ...newService, paymentId }
-        fetch('http://localhost:5000/bookOrder', {
+        fetch('https://arcane-garden-75913.herokuapp.com/bookOrder', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json; charset=UTF-8',

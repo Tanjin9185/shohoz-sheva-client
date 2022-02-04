@@ -9,7 +9,7 @@ import { UserContext } from '../../../App';
 const Header = () => {
 
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-    console.log(setLoggedInUser)
+
     return (
         <section className="container">
             <Navbar expand="lg">

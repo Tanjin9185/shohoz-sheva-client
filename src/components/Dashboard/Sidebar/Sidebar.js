@@ -11,7 +11,7 @@ const Sidebar = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const [isAdmin, setIsAdmin] = useState(false)
     useEffect(() => {
-        const url = 'http://localhost:5000/isAdmin'
+        const url = 'https://arcane-garden-75913.herokuapp.com/isAdmin'
         fetch(url, {
             method: 'POST',
             headers: {

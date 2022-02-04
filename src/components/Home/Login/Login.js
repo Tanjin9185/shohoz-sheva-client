@@ -135,12 +135,10 @@ const Login = () => {
                 <hr />
 
                 <button onClick={handleGoogleSignIn} className="w-100 btn btn-lg btn-outline-success mb-2" type="submit">Connect with Google</button>
-                { }
+
 
             </form>
-            {
-                console.log(user)
-            }
+
             <p style={{ color: 'red' }}>{user.error}</p>
             {
                 user.success && <p style={{ color: 'green' }}>User {newUser ? 'created' : 'Logged In'} successfully</p>

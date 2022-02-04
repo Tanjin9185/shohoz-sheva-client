@@ -12,7 +12,6 @@ const AddService = () => {
 
     const { register, handleSubmit } = useForm();
     const [imageURL, setImageURL] = useState(null);
-    const [done, setDone] = useState(false);
 
     const onSubmit = data => {
         let eventData = {
@@ -34,7 +33,7 @@ const AddService = () => {
 
         })
             .then(res => {
-                setDone(true);
+
                 alert("product added successfully");
             }
             )
@@ -73,28 +72,7 @@ const AddService = () => {
                         <input className="form-control" name="image" type="file" onChange={handleImageUpload} /> <br /><br />
                         <input type="submit" />
                     </form>
-                    {
-                        done &&
-                        <>
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>  </div>
-                                        <div class="modal-body">
-                                            Are you sure you want to delete?
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                            {/* <button type="button" className="btn btn-danger" data-dismiss="modal" onClick={() => handleDelete(service._id)}>Delete</button> */}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </>
-                    }
+
                 </div>
             </div>
         </div>
