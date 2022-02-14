@@ -18,7 +18,7 @@ const AddReview = () => {
             imageURL: imageURL
         };
         console.log("maria", reviewData);
-        const url = 'https://arcane-garden-75913.herokuapp.com/addReview'
+        const url = 'https://evening-badlands-03191.herokuapp.com/addReview'
         fetch(url, {
             method: 'POST',
             headers: {
@@ -46,27 +46,28 @@ const AddReview = () => {
     }
     return (
         <div className="row">
-            <div className="col-md-2 col-sm-6 col-12">
+            <div className="col-md-3 col-sm-6 col-12">
                 <Sidebar />
             </div>
-            <div className="col-md-10 col-sm-12 col-12 d-flex justify-content-center mt-5 pt-5 pb-5">
-                <div clasName="login-box">
+            <div className="col-md-8 addservice mt-5 pt-5" style={{ backgroundColor: '#E6DDC4' }}>
+                <div clasName="mt-5">
+                    <h1 className="text-secondary mb-5">Add Review</h1>
                     <form onSubmit={handleSubmit(onSubmit)}>
-                        <h1 className="text-secondary mb-5">Add Review</h1>
-                        <div className="user-box">
-                            <input placeholder="name" name="name"{...register("name")} />
-                        </div>
-                        <div className="user-box">
-                            <input placeholder="description" name="description"{...register("description")} />
-                        </div>
-                        <div className="user-box">
-                            <input placeholder="rating" name="rating"{...register("rating")} />
-                        </div>
-                        <div className="user-box">
-                            <input onChange={handleImageUpload} type="file" name="image" />
-                        </div>
-                        <input className="buttonStyle" type="submit" value="Submit" />
-                    </form>
+
+
+                        <input className="form-control" placeholder="name" name="name"{...register("name")} />
+                        <br />
+
+                        <input className="form-control" placeholder="description" name="description"{...register("description")} />
+                        <br />
+
+                        <input className="form-control" placeholder="rating" name="rating"{...register("rating")} />
+                        <br />
+
+                        <input className="form-control" onChange={handleImageUpload} type="file" name="image" />
+                        <br /><br />
+                        <input className="form-control" type="submit" value="Submit" />
+                        <br /> </form>
                 </div>
             </div>
         </div>

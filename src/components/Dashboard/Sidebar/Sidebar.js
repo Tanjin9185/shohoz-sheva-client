@@ -9,9 +9,9 @@ import { UserContext } from '../../../App';
 const Sidebar = () => {
 
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-    const [isAdmin, setIsAdmin] = useState(false)
+    const [isAdmin, setIsAdmin] = useState(true)
     useEffect(() => {
-        const url = 'https://arcane-garden-75913.herokuapp.com/isAdmin'
+        const url = 'https://evening-badlands-03191.herokuapp.com/isAdmin'
         fetch(url, {
             method: 'POST',
             headers: {
@@ -23,7 +23,7 @@ const Sidebar = () => {
             .then(data => setIsAdmin(data))
     }, [])
     return (
-        <div className="sidebar d-flex flex-column justify-content-between col-md-2 py-5 px-4" style={{ height: "100vh", backgroundColor: '#678983' }}>
+        <div className="sidebar d-flex flex-column justify-content-between col-md-2 py-5 px-4" style={{ height: "100vh" }}>
             <ul className="list-unstyled">
                 <li>
                     <Link to="/" className="text-white">
@@ -56,7 +56,8 @@ const Sidebar = () => {
                                         <FontAwesomeIcon icon={faTasks} /> <span>Manage Service</span>
                                     </Link>
                                 </li>
-                            </div> :
+                            </div>
+                            :
                             <div>
                                 <li>
                                     <Link to="/service/:id" className="text-white">
@@ -81,4 +82,4 @@ const Sidebar = () => {
     );
 };
 
-export default Sidebar;
+export default Sidebar; 

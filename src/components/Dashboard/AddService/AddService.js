@@ -21,7 +21,7 @@ const AddService = () => {
             imageURL: imageURL
         }
         console.log(eventData);
-        const url = `https://arcane-garden-75913.herokuapp.com/addServices`
+        const url = `https://evening-badlands-03191.herokuapp.com/addServices`
 
 
         fetch(url, {
@@ -61,7 +61,7 @@ const AddService = () => {
             <div className="col-md-3">
                 <Sidebar></Sidebar>
             </div>
-            <div className="col-md-9 addservice mt-5 pt-5" style={{ backgroundColor: '#E6DDC4' }}>
+            <div className="col-md-8 addservice mt-5 pt-5" style={{ backgroundColor: '#E6DDC4' }}>
                 <div className="mt-5">
                     <h3 className="mb-3">Add Service</h3>
                     <form className="mb-5" onSubmit={handleSubmit(onSubmit)}>

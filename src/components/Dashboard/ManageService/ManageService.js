@@ -22,7 +22,7 @@ const ManageService = () => {
     }, [])
 
     const getServices = () => {
-        fetch('https://arcane-garden-75913.herokuapp.com/services')
+        fetch('https://evening-badlands-03191.herokuapp.com/services')
 
             .then(res => res.json())
             .then(data => {
@@ -32,7 +32,7 @@ const ManageService = () => {
     //update user data
     const editClicked = (id) => {
         setServiceId(id);
-        fetch(`https://arcane-garden-75913.herokuapp.com/service/${id}`)
+        fetch(`https://evening-badlands-03191.herokuapp.com/service/${id}`)
             .then(res => res.json())
             .then(data => {
                 setSingleService(data[0]);
@@ -54,7 +54,7 @@ const ManageService = () => {
 
         };
 
-        fetch(`https://arcane-garden-75913.herokuapp.com/update/${serviceId}`, {
+        fetch(`https://evening-badlands-03191.herokuapp.com/update/${serviceId}`, {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(editUserData)
@@ -90,7 +90,7 @@ const ManageService = () => {
 
 
     const handleDelete = id => {
-        fetch(`https://arcane-garden-75913.herokuapp.com/services/${id}`, {
+        fetch(`https://evening-badlands-03191.herokuapp.com/services/${id}`, {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json'
